@@ -1,0 +1,2945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+UHEAT — Understanding Ocean Heat Content
+</title>
+
+
+<meta name="description"
+content="UHEAT: Understanding ocean heat content, marine heatwaves, and ecosystem impacts through observations, modelling, and artificial intelligence.">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+
+/* ============================================================
+   UHEAT VERSION 2.2
+   ============================================================ */
+
+
+:root {
+
+
+--background:#F7FAFC;
+
+--surface:#FFFFFF;
+
+--ocean-dark:#073B4C;
+
+--ocean:#118AB2;
+
+--turquoise:#06A6A6;
+
+--heat:#F77F00;
+
+--text:#18323A;
+
+--muted:#60757B;
+
+--border:#DCE7EA;
+
+
+--heading-font:"Lora", serif;
+
+--body-font:"Inter", sans-serif;
+
+
+}
+
+
+
+* {
+
+box-sizing:border-box;
+
+}
+
+
+
+html {
+
+scroll-behavior:smooth;
+
+}
+
+
+
+body {
+
+
+margin:0;
+
+background:var(--background);
+
+color:var(--text);
+
+font-family:var(--body-font);
+
+line-height:1.65;
+
+
+}
+
+
+
+h1,
+h2,
+h3 {
+
+
+font-family:var(--heading-font);
+
+font-weight:600;
+
+line-height:1.25;
+
+
+}
+
+
+
+p {
+
+margin-top:0;
+
+}
+
+
+
+img {
+
+max-width:100%;
+
+display:block;
+
+}
+
+
+
+a {
+
+color:inherit;
+
+}
+
+
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+
+.container {
+
+
+max-width:1150px;
+
+margin:auto;
+
+padding-left:30px;
+
+padding-right:30px;
+
+
+}
+
+
+
+section {
+
+
+padding:90px 0;
+
+scroll-margin-top:90px;
+
+
+}
+
+
+
+/* ============================================================
+   HEADER / STICKY NAVIGATION
+   ============================================================ */
+
+
+header {
+
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+
+background:rgba(247,250,252,0.88);
+
+backdrop-filter:blur(12px);
+
+
+border-bottom:1px solid var(--border);
+
+
+}
+
+
+
+.navbar {
+
+
+max-width:1150px;
+
+margin:auto;
+
+
+padding:18px 30px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+
+}
+
+
+
+.logo {
+
+
+font-family:var(--heading-font);
+
+font-size:24px;
+
+font-weight:700;
+
+letter-spacing:.04em;
+
+text-decoration:none;
+
+color:var(--ocean-dark);
+
+
+}
+
+
+
+nav {
+
+
+display:flex;
+
+gap:30px;
+
+align-items:center;
+
+
+}
+
+
+
+nav a {
+
+
+font-size:16px;
+
+font-weight:500;
+
+text-decoration:none;
+
+position:relative;
+
+
+}
+
+
+
+nav a::after {
+
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-7px;
+
+height:2px;
+
+width:0;
+
+background:var(--turquoise);
+
+transition:.25s ease;
+
+
+}
+
+
+
+nav a:hover::after {
+
+
+width:100%;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+
+.hero {
+
+
+padding-top:105px;
+
+padding-bottom:100px;
+
+
+background:
+
+
+radial-gradient(
+
+circle at top right,
+
+rgba(17,138,178,.12),
+
+transparent 35%
+
+);
+
+
+}
+
+
+
+
+.hero-content {
+
+
+display:grid;
+
+grid-template-columns:
+
+1.15fr .85fr;
+
+
+gap:60px;
+
+align-items:center;
+
+
+}
+
+
+
+
+.hero h1 {
+
+
+font-size:52px;
+
+color:var(--ocean-dark);
+
+margin-bottom:25px;
+
+
+}
+
+
+
+
+.hero-description {
+
+
+font-size:20px;
+
+color:var(--muted);
+
+max-width:650px;
+
+
+}
+
+
+
+
+.hero-meta {
+
+
+margin-top:30px;
+
+font-size:14px;
+
+letter-spacing:.05em;
+
+color:var(--muted);
+
+
+}
+
+
+
+
+
+
+/* ============================================================
+   HERO LOGOS
+   ============================================================ */
+
+
+.hero-logos {
+
+
+margin-top:55px;
+
+display:flex;
+
+align-items:center;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+.hero-logos img {
+
+
+height:55px;
+
+width:auto;
+
+
+}
+
+
+
+
+
+
+/* ============================================================
+   HERO IMAGE
+   Replace with your generated image:
+   images/hero-ocean.jpg
+   ============================================================ */
+
+
+.hero-visual {
+
+min-height:360px;
+
+border-radius:22px;
+
+background:
+
+url("images/hero-ocean.png");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+text-align:center;
+
+}
+
+
+
+.hero-visual p {
+
+
+font-family:var(--heading-font);
+
+font-size:26px;
+
+line-height:1.4;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================================
+   MOBILE NAVIGATION
+   ============================================================ */
+
+
+@media(max-width:850px){
+
+
+.navbar {
+
+
+flex-direction:column;
+
+gap:15px;
+
+
+}
+
+
+
+nav {
+
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+
+}
+
+
+
+.hero-content {
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.hero h1 {
+
+
+font-size:38px;
+
+
+}
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+
+
+<header>
+
+
+<div class="navbar">
+
+
+<a href="#home" class="logo">
+
+UHEAT
+
+</a>
+
+
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#objectives">Objectives</a>
+
+<a href="#team">Team</a>
+
+<a href="#partners">Partners</a>
+
+<a href="#news">News & outputs</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+
+
+<section id="home" class="hero">
+
+
+<div class="container">
+
+
+<div class="hero-content">
+
+
+
+<div>
+
+
+
+<h1>
+
+Understanding ocean heat content and its role in marine heatwaves and ecosystem change
+
+</h1>
+
+
+
+
+<p class="hero-description">
+
+
+A joint European–Japanese research project investigating how ocean heat redistribution drives marine heatwaves and impacts on fisheries.
+
+
+</p>
+
+
+
+
+<p class="hero-meta">
+
+
+2026–2029 · Atlantic &amp; Pacific Oceans · EIG CONCERT-Japan
+
+
+</p>
+
+
+
+
+
+<div class="hero-logos">
+
+
+<img src="images/logo-eig-concert-japan.png"
+alt="EIG CONCERT-Japan logo">
+
+
+<img src="images/logo-uib.png"
+alt="University of the Balearic Islands logo">
+
+
+<img src="images/logo-hku.png"
+alt="Hokkaido University logo">
+
+
+<img src="images/logo-uhh.png"
+alt="University of Hamburg logo">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="hero-visual">
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+
+
+<section id="about">
+
+
+<div class="container">
+
+
+
+<div class="section-header">
+
+
+<h2>
+
+About the project
+
+</h2>
+
+
+<p>
+
+Understanding how ocean heat accumulates and moves around the planet, and how these changes shape marine heatwaves and their impacts on ecosystems.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="about-grid">
+
+
+
+
+
+<div class="about-text">
+
+
+<p>
+
+Around <strong>90% of the excess heat trapped by global warming has been absorbed by the ocean</strong>. However, this heat is not distributed uniformly. Ocean circulation redistributes heat across the globe and transports it into the ocean interior, shaping regional patterns of ocean warming.
+
+</p>
+
+
+
+<p>
+
+In some regions, changes in ocean circulation are accelerating warming, creating conditions that favour increasingly frequent and intense <strong>marine heatwaves (MHWs)</strong>.
+
+</p>
+
+
+
+<p>
+
+Marine heatwaves can have profound consequences for marine ecosystems, affecting biodiversity, fisheries, and the communities that depend on healthy oceans.
+
+</p>
+
+
+
+<p>
+
+<strong>UHEAT</strong> brings together researchers from Spain, Japan, and Germany to understand how changes in <strong>ocean heat content (OHC)</strong> influence MHWs and their impact on key commercially important fish species. By combining observations, climate models, and artificial intelligence, the project aims to advance understanding of regional OHC changes and their connection to MHWs, and exploit this understanding to develop AI-based models for the prediction of MHWs and their impacts on key fish species.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="about-image">
+
+
+<img src="images/fig1-sst-anomaly.png"
+
+alt="Sea surface temperature anomaly map">
+
+
+
+<p class="caption">
+
+Sea surface temperature anomaly relative to the climatological average. Ocean warming is highly uneven, reflecting the influence of ocean circulation and climate variability.
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ============================================================
+     OBJECTIVES SECTION
+     ============================================================ -->
+
+
+<section id="objectives">
+
+
+<div class="container">
+
+
+
+
+
+<div class="section-header">
+
+
+<h2>
+
+Research objectives and approach
+
+</h2>
+
+
+
+<p>
+
+From reconstructing past ocean changes to anticipating future impacts.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="objectives-grid">
+
+
+
+
+
+<div class="objective-card">
+
+
+<div class="objective-number">
+
+01
+
+</div>
+
+
+<h3>
+
+Estimating past changes
+
+</h3>
+
+
+<p>
+
+Reconstruct ocean heat content, heat transport, and circulation across the Atlantic and Pacific since 1993, using a rigorous Bayesian method that fuses satellite and in-situ ocean data.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="objective-card">
+
+
+<div class="objective-number">
+
+02
+
+</div>
+
+
+<h3>
+
+Explaining the changes
+
+</h3>
+
+
+<p>
+
+Determine what's actually causing regional ocean heat changes — and how those changes precondition marine heatwaves.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="objective-card">
+
+
+<div class="objective-number">
+
+03
+
+</div>
+
+
+<h3>
+
+Projecting the future
+
+</h3>
+
+
+<p>
+
+Use "emergent constraints" to refine climate model projections of future ocean heat content and marine heatwave likelihood.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="objective-card">
+
+
+<div class="objective-number">
+
+04
+
+</div>
+
+
+<h3>
+
+Predicting marine heatwaves with AI
+
+</h3>
+
+
+<p>
+
+Build a deep-learning system that predicts marine heatwave probability using ocean heat content, heat transport, and sea surface temperature — going beyond today's SST-only AI models.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="objective-card">
+
+
+<div class="objective-number">
+
+05
+
+</div>
+
+
+<h3>
+
+Assessing the impact on fisheries
+
+</h3>
+
+
+<p>
+
+Translate heatwave predictions into practical, ecosystem-level insight: how will key commercial fish species' habitats shift, and what does that mean for fisheries management in Japan and Europe?
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PROJECT STRUCTURE FIGURE -->
+
+
+<div class="objectives-figure">
+
+
+<img src="images/fig2-project-structure.jpg"
+
+alt="UHEAT project structure and work packages">
+
+
+
+<p class="caption">
+
+Project structure and work packages.
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+
+
+.section-header {
+
+
+max-width:720px;
+
+margin-bottom:55px;
+
+
+}
+
+
+
+.section-header h2 {
+
+
+font-size:38px;
+
+color:var(--ocean-dark);
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.section-header p {
+
+
+font-size:18px;
+
+color:var(--muted);
+
+
+}
+
+
+
+
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+
+.about-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+1fr 1fr;
+
+
+gap:60px;
+
+
+align-items:center;
+
+
+}
+
+
+
+.about-text p {
+
+
+font-size:17px;
+
+margin-bottom:22px;
+
+
+}
+
+
+
+.about-text strong {
+
+
+color:var(--ocean-dark);
+
+
+}
+
+
+
+.about-image img {
+
+
+width:100%;
+
+
+border-radius:18px;
+
+
+}
+
+
+
+
+.caption {
+
+
+font-size:15px;
+
+font-style:italic;
+
+line-height:1.5;
+
+color:var(--muted);
+
+margin-top:15px;
+
+
+}
+
+
+
+
+
+
+/* ============================================================
+   OBJECTIVES
+   ============================================================ */
+
+
+.objectives-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(300px,1fr));
+
+
+gap:28px;
+
+
+}
+
+
+
+
+
+.objective-card {
+
+
+background:white;
+
+
+border:1px solid var(--border);
+
+
+border-radius:18px;
+
+
+padding:32px;
+
+
+transition:.25s ease;
+
+
+}
+
+
+
+
+.objective-card:hover {
+
+
+transform:translateY(-5px);
+
+
+box-shadow:
+
+0 12px 35px rgba(7,59,76,.08);
+
+
+}
+
+
+
+
+
+.objective-number {
+
+
+font-family:var(--heading-font);
+
+
+font-size:38px;
+
+
+font-weight:700;
+
+
+color:var(--heat);
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.objective-card h3 {
+
+
+font-size:22px;
+
+
+color:var(--ocean-dark);
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.objective-card p {
+
+
+font-size:15px;
+
+
+margin-bottom:0;
+
+
+}
+
+
+
+
+
+.objectives-figure {
+
+
+max-width:650px;
+
+
+margin:70px auto 0;
+
+
+}
+
+
+
+.objectives-figure img {
+
+
+width:100%;
+
+
+border-radius:18px;
+
+
+}
+
+
+
+.objectives-figure .caption {
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+
+@media(max-width:850px){
+
+
+.about-grid {
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.section-header h2 {
+
+
+font-size:32px;
+
+
+}
+
+
+}
+
+
+</style>
+
+
+
+<!-- ============================================================
+     TEAM SECTION
+     ============================================================ -->
+
+
+<section id="team">
+
+
+<div class="container">
+
+
+
+<div class="section-header">
+
+
+<h2>
+
+Team
+
+</h2>
+
+
+
+<p>
+
+An international collaboration connecting expertise in physical oceanography, climate science, artificial intelligence, and fisheries.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="team-grid">
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-calafat.jpg"
+
+alt="Francisco M. Calafat">
+
+
+
+<h3>
+
+Francisco M. Calafat
+
+</h3>
+
+
+
+<p class="institution">
+
+University of the Balearic Islands, Spain
+
+</p>
+
+
+
+<p class="role">
+
+Project Leader
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-frajka-williams.jpg"
+
+alt="Eleanor Frajka-Williams">
+
+
+
+<h3>
+
+Eleanor Frajka-Williams
+
+</h3>
+
+
+
+<p class="institution">
+
+University of Hamburg, Germany
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-kuroda.jpg"
+
+alt="Hiroshi Kuroda">
+
+
+
+<h3>
+
+Hiroshi Kuroda
+
+</h3>
+
+
+
+<p class="institution">
+
+Hokkaido University, Japan
+
+</p>
+
+
+
+<p class="role">
+
+Japanese Project Leader
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-marcos.jpg"
+
+alt="Marta Marcos">
+
+
+
+<h3>
+
+Marta Marcos
+
+</h3>
+
+
+
+<p class="institution">
+
+University of the Balearic Islands, Spain
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-minobe.jpg"
+
+alt="Shoshiro Minobe">
+
+
+
+<h3>
+
+Shoshiro Minobe
+
+</h3>
+
+
+
+<p class="institution">
+
+Hokkaido University, Japan
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="team-card">
+
+
+<img src="images/team-sasaki.jpg"
+
+alt="Yoshi N. Sasaki">
+
+
+
+<h3>
+
+Yoshi N. Sasaki
+
+</h3>
+
+
+
+<p class="institution">
+
+Hokkaido University, Japan
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ============================================================
+     PARTNERS SECTION
+     ============================================================ -->
+
+
+<section id="partners">
+
+
+<div class="container">
+
+
+
+
+
+<div class="section-header centered">
+
+
+<h2>
+
+Partners
+
+</h2>
+
+
+
+<p>
+
+An international collaboration between European and Japanese institutions.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="partner-grid">
+
+
+
+
+
+<div class="partner-card">
+
+
+<img src="images/logo-uib.png"
+
+alt="University of the Balearic Islands logo">
+
+
+
+<h3>
+
+University of the Balearic Islands
+
+</h3>
+
+
+
+<p>
+
+Spain
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="partner-card">
+
+
+<img src="images/logo-hku.png"
+
+alt="Hokkaido University logo">
+
+
+
+<h3>
+
+Hokkaido University
+
+</h3>
+
+
+
+<p>
+
+Japan
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="partner-card">
+
+
+<img src="images/logo-uhh.png"
+
+alt="University of Hamburg logo">
+
+
+
+<h3>
+
+University of Hamburg
+
+</h3>
+
+
+
+<p>
+
+Germany
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="funding-box">
+
+
+<p>
+
+
+<strong>UHEAT</strong> is funded through the
+
+<strong>EIG CONCERT-Japan Joint Call on Oceans:
+Climate Change Mitigation and Adaptation</strong>
+
+(2026–2029).
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ============================================================
+     NEWS & OUTPUTS SECTION
+     ============================================================ -->
+
+
+<section id="news">
+
+
+<div class="container">
+
+
+
+
+
+<div class="section-header centered">
+
+
+<h2>
+
+News & outputs
+
+</h2>
+
+
+
+<p>
+
+Scientific publications, datasets, software, and project updates.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="news-grid">
+
+
+
+
+
+<div class="news-card">
+
+
+<h3>
+
+Publications
+
+</h3>
+
+
+
+<p>
+
+Peer-reviewed scientific articles and research outputs emerging from UHEAT.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="news-card">
+
+
+<h3>
+
+Data & code
+
+</h3>
+
+
+
+<p>
+
+Datasets, software tools, and reproducible workflows developed during the project.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="news-card">
+
+
+<h3>
+
+Project updates
+
+</h3>
+
+
+
+<p>
+
+News about meetings, conferences, milestones, and collaboration activities.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+
+
+.team-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+
+gap:35px;
+
+
+}
+
+
+
+
+.team-card {
+
+
+background:white;
+
+
+border:1px solid var(--border);
+
+
+border-radius:18px;
+
+
+padding:30px 20px;
+
+
+text-align:center;
+
+
+transition:.25s ease;
+
+
+}
+
+
+
+.team-card:hover {
+
+
+transform:translateY(-5px);
+
+
+box-shadow:
+
+0 12px 30px rgba(7,59,76,.08);
+
+
+}
+
+
+
+
+.team-card img {
+
+
+width:150px;
+
+
+height:150px;
+
+
+object-fit:cover;
+
+
+border-radius:50%;
+
+
+margin:0 auto 20px;
+
+
+border:5px solid #F2F7F8;
+
+
+}
+
+
+
+
+.team-card h3 {
+
+
+font-size:20px;
+
+
+color:var(--ocean-dark);
+
+
+margin-bottom:8px;
+
+
+}
+
+
+
+
+.institution {
+
+
+font-size:14px;
+
+
+color:var(--muted);
+
+
+margin-bottom:6px;
+
+
+}
+
+
+
+
+.role {
+
+
+font-size:13px;
+
+
+font-weight:600;
+
+
+color:var(--heat);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   PARTNERS
+   ============================================================ */
+
+
+.centered {
+
+
+text-align:center;
+
+
+margin-left:auto;
+
+
+margin-right:auto;
+
+
+}
+
+
+
+
+.partner-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+margin-bottom:45px;
+
+
+}
+
+
+
+
+.partner-card {
+
+
+background:white;
+
+
+border:1px solid var(--border);
+
+
+border-radius:18px;
+
+
+padding:35px 25px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+.partner-card img {
+
+
+height:65px;
+
+
+width:auto;
+
+
+margin:0 auto 25px;
+
+
+}
+
+
+
+
+
+.partner-card h3 {
+
+
+font-size:19px;
+
+
+color:var(--ocean-dark);
+
+
+margin-bottom:8px;
+
+
+}
+
+
+
+
+
+.partner-card p {
+
+
+font-size:14px;
+
+
+color:var(--muted);
+
+
+}
+
+
+
+
+.funding-box {
+
+
+max-width:750px;
+
+
+margin:auto;
+
+
+padding:30px;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(17,138,178,.08),
+
+rgba(6,166,166,.08)
+
+);
+
+
+border-radius:18px;
+
+
+text-align:center;
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   NEWS
+   ============================================================ */
+
+
+.news-grid {
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+}
+
+
+
+
+.news-card {
+
+
+background:white;
+
+
+border:1px solid var(--border);
+
+
+border-radius:18px;
+
+
+padding:32px;
+
+
+}
+
+
+
+
+.news-card h3 {
+
+
+font-size:22px;
+
+
+color:var(--ocean-dark);
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+.news-card p {
+
+
+font-size:15px;
+
+
+margin-bottom:0;
+
+
+}
+
+
+</style>
+
+
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+
+
+<section id="contact">
+
+
+<div class="container">
+
+
+<div class="contact-box">
+
+
+<h2>
+
+Get in touch
+
+</h2>
+
+
+
+
+<p>
+
+Please feel free to contact us with any questions about the project, collaboration opportunities,
+or scientific enquiries.
+
+</p>
+
+
+
+
+
+<a href="mailto:francisco.mcalafat@uib.es"
+
+class="contact-button">
+
+francisco.mcalafat@uib.es
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+
+<footer>
+
+
+<div class="container">
+
+
+
+<div class="footer-logos">
+
+
+<img src="images/logo-uib.png"
+
+alt="University of the Balearic Islands">
+
+
+
+<img src="images/logo-hku.png"
+
+alt="Hokkaido University">
+
+
+
+<img src="images/logo-uhh.png"
+
+alt="University of Hamburg">
+
+
+</div>
+
+
+
+
+
+<p>
+
+© 2026 UHEAT · Understanding Ocean Heat Content
+
+</p>
+
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+
+.contact-box {
+
+
+max-width:750px;
+
+
+margin:auto;
+
+
+text-align:center;
+
+
+background:var(--ocean-dark);
+
+
+color:white;
+
+
+padding:55px 40px;
+
+
+border-radius:25px;
+
+
+}
+
+
+
+
+.contact-box h2 {
+
+
+font-size:38px;
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+.contact-box p {
+
+
+font-size:17px;
+
+
+opacity:.9;
+
+
+margin-bottom:30px;
+
+
+}
+
+
+
+
+.contact-button {
+
+
+display:inline-block;
+
+
+background:white;
+
+
+color:var(--ocean-dark);
+
+
+padding:14px 32px;
+
+
+border-radius:30px;
+
+
+text-decoration:none;
+
+
+font-weight:600;
+
+
+font-size:15px;
+
+
+}
+
+
+
+.contact-button:hover {
+
+
+opacity:.9;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+
+footer {
+
+
+padding:50px 0 60px;
+
+
+text-align:center;
+
+
+font-size:14px;
+
+
+color:var(--muted);
+
+
+}
+
+
+
+
+.footer-logos {
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+gap:40px;
+
+
+flex-wrap:wrap;
+
+
+margin-bottom:30px;
+
+
+}
+
+
+
+
+.footer-logos img {
+
+
+height:32px;
+
+
+width:auto;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   FINAL RESPONSIVE ADJUSTMENTS
+   ============================================================ */
+
+
+@media(max-width:850px){
+
+
+
+.container {
+
+
+padding-left:20px;
+
+
+padding-right:20px;
+
+
+}
+
+
+
+
+
+.hero {
+
+
+padding-top:80px;
+
+
+}
+
+
+
+
+
+.hero-description {
+
+
+font-size:17px;
+
+
+}
+
+
+
+
+.hero-logos img {
+
+
+height:40px;
+
+
+}
+
+
+
+
+.objective-card {
+
+
+padding:25px;
+
+
+}
+
+
+
+
+
+.contact-box {
+
+
+padding:40px 25px;
+
+
+}
+
+
+
+
+
+.contact-box h2 {
+
+
+font-size:32px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+@media(max-width:500px){
+
+
+
+.logo {
+
+
+font-size:21px;
+
+
+}
+
+
+
+
+nav {
+
+
+gap:15px;
+
+
+}
+
+
+
+
+nav a {
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+.hero h1 {
+
+
+font-size:32px;
+
+
+}
+
+
+
+
+.hero-visual {
+
+
+min-height:220px;
+
+
+}
+
+
+
+
+.hero-visual p {
+
+
+font-size:18px;
+
+
+}
+
+
+
+
+.section-header h2 {
+
+
+font-size:28px;
+
+
+}
+
+
+
+
+
+.team-card img {
+
+
+width:120px;
+
+
+height:120px;
+
+
+}
+
+
+
+
+
+.partner-card {
+
+
+padding:25px 15px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
